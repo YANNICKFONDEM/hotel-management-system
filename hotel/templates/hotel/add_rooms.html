@@ -1,0 +1,52 @@
+{% extends "hotel/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form class="p-4 p-md-5 border rounded-3 bg-secondary"method ="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+
+            
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Add</button>
+        
+        </form>
+
+    </div>
+    <div class="col-md-6">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Room No</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                    
+                        <td>{{room.room_number}}</td>
+                        <td>{{room.room_type }}</td>
+                        <td>{{room.price }}cfa</td>
+                        {% if room.is_available %}
+                        <td><span class="badge bg-success">Available</span></td>
+                        {% else %}
+                        <td><span class="badge bg-warning">Occupied</span></td>
+                        {% endif %}
+                        <td> <a class="text-primary" href="{% url 'update_room' room.id %}">Edit</a><a class="text-danger" href="{% url  'delete-room' room.id %}"> Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock content %}

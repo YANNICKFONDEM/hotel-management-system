@@ -1,0 +1,154 @@
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Management</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Innkeeper Hotel</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view-booking' %}">View Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'inventory' %}">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_rooms' %}">Manage Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'room_types' %}">Manage Categories</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    
+    {% endblock content %}
+
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html> {% endcomment %}
+
+
+
+{% comment %} ########################### {% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Innkeeper Hotel</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+
+
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script type="text/javascript" src="{% static 'dist/slick.js' %}"></script>
+     <script type="text/javascript" src="{% static 'dist/jquery.scrollUp.js' %}"></script>
+  
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/slick.css' %}">
+
+    
+   <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}">
+
+  
+         <script type="text/javascript" src="{% static 'dist/demo.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+    <!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css' %}"/>
+    
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+
+    
+    </head>
+    
+<body >  
+    <header class="tm-header">
+        <!-- <img class="tm-logo" src="{% static 'images/Majestic_Hotel_hd.png' %}" alt="Majestic Hotel"> -->
+        <nav class="tm-nav" >
+       <div>
+            <ul>
+                
+                <li class="tm-list"><a href="/">Home</a></li>
+                <li class="tm-list"><a href="{% url 'explore' %}">Explore </a></li>
+                <li class="tm-list"><a href="{% url 'home' %}">Rooms</a></li>
+                {% comment %} <li class="tm-list"><a href="bb.html">Booking</a></li> {% endcomment %}
+                <li><a href="{% url 'contactus' %}">Contact</a></li>
+                <li>
+                    <a href="{% url 'view-booking' %}">View Booking</a>
+                </li>
+                <li>
+                    <a href="{% url 'inventory' %}">Inventory</a>
+                </li>
+                <li>
+                    <a href="{% url 'add_rooms' %}">Manage Rooms</a>
+                </li>
+                <li>
+                    <a href="{% url 'room_types' %}">Manage Categories</a>
+                </li>
+            </ul>    
+            </div>
+        </nav>
+    </header>
+    
+
+    {% block content %}
+    
+    {% endblock content %}
+
+
+    <footer class="tm-footer">
+        <div class="tm-us">
+        <p class="bold">About Us</p>
+        <p>We are a part of chain of luxury hotels 
+            which extends all over the world. We 
+            provide a luxorious stay with various value
+            added and free services which will make
+            you visit us over and over again.</p>    
+        </div>
+       
+        <div class="tm-address">
+        <p class="bold">Address</p>
+        <p>MyLocation
+            Phone : (+237) 9275693451 <br>
+            Email : Innkeeper@info.com</p>    
+        </div>
+        <br/>
+    <div class="tm-media">
+        <a href="#"> <img src="{% static 'images/fb.png' %}"></a>
+        <a href="#"> <img src="{% static 'images/G.png' %}"> </a>
+        <a href="#"> <img src="{% static 'images/twittr.png' %}"> </a>
+        <a href="#">  <img src="{% static 'images/insta.png' %}"> </a>
+        
+        </div>
+       
+<!--    <a  href="#top">  <img class="tm-up" src="{% static 'images/up.png' %}"> </a>-->
+        
+      
+    </footer>
+</body>
+</html>

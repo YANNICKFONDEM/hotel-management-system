@@ -1,0 +1,125 @@
+
+{% extends "hotel/base.html" %}
+{% load static %}
+{% comment %} {% block content %}
+<div class="container mt-4">
+    <h1 class="text-center"> Rooms</h1>
+    <div class="row">
+        {% for room in rooms %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center">room {{ room.room_number }} - {{ room.room_type.type_name }}</h5>
+                    <p class="card-text text-center">Price: {{ room.price }} cfa</p>
+                    <p class="card-text text-center">{{ room.room_type.description }} </p>
+                    {% if room.is_available %}
+                    <a href="{% url 'book_room' room.id %}" class="btn btn-primary justify-content center">Book Now</a>
+                    {% else %}
+                    <p class="text-danger text-center">Not Available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> {% endcomment %}
+
+{% comment %} ##################### {% endcomment %}
+
+
+{% block content %}
+<section class="tm-main">
+    <p>Rooms</p>
+</section>
+
+<section class="tm-roomsection">
+    {% for room in rooms %}
+
+    
+             <div class="tm-room1">
+                 <div class="tm-trans"> <div><p>2 Bed</p><p>{{room.room_type.description}}</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">{{room.price}}</p>
+                  <p><a href="{% url 'book_room' room.id %}"class="bold-book">Book Now</a></p> </div></div>
+                 
+                 
+                  <img class="tm-roomimage" src="{% static 'images/luxury.png' %}"> 
+              <p class="s">Luxury Suite</p>
+
+             </div>
+
+    
+
+{% comment %}  
+                 <div class="tm-room1">
+                     <div class="tm-trans"> <div><p>2 Bed</p><p>Luxorious interior</p><p>Free Wifi</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">$ 1599.99</p> </div></div>
+             
+                     
+                 <img class="tm-roomimage" src="{% static 'images/delux.png' %}">
+                     <p>Delux Suite</p>
+
+             </div>
+                 <div class="tm-room1">
+                     
+                     <div class="tm-trans"> <div><p>2 Bed</p><p>Scenic View</p><p>Free Wifi</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">$ 1299.99</p> </div></div>
+                 
+                     
+                 <img class="tm-roomimage" src="{% static 'images/premier.png' %}">
+                      <p>Premier Suite</p>
+
+             </div> {% endcomment %}
+             {% endfor %}
+</section>
+<br/>
+{% comment %} <section class="tm-roomsection">
+             <div class="tm-room1">
+                 
+                 <div class="tm-trans"> <div><p>2 Bed</p><p>Free wifi</p><p>Fresh towels</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">$ 999.99</p> </div></div>
+                 
+                 
+                 <img class="tm-roomimage" src="{% static 'images/luxuryroom.png' %}">
+              <p class="s">Luxury Room</p>
+
+             </div>
+                 <div class="tm-room1">
+                     
+                     <div class="tm-trans"> <div><p>2 Bed</p><p>Fresh towels</p><p>Less costly</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">$ 599.99</p> </div></div>
+                 
+                     
+                 <img class="tm-roomimage" src="{% static 'images/deluxroom.png' %}">
+                     <p>Delux Room</p>
+
+             </div>
+                 <div class="tm-room1">
+                     
+                     <div class="tm-trans"> <div><p>1 Bed</p><p>Fresh towels</p><p>Less costly</p> </div>
+                 
+                 <div><p>Only for</p><p class="bold">$ 399.99</p> </div></div>
+                 
+                     
+                 <img class="tm-roomimage" src="{% static 'images/premiumroom.png' %}">
+                      <p>Premier Room</p>
+
+             </div>
+</section> {% endcomment %}
+<br/> 
+
+
+
+<section class="tm-makeres">
+<div class="tm-res">
+<div class="tm-resbutton">
+    <a href="bb.html"> <p>Make Reservation</p></a>
+ </div>
+ </div>
+</section>
+
+{% endblock content %}

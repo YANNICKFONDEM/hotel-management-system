@@ -1,0 +1,47 @@
+{% extends "hotel/base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card-body">
+
+        <div class="alert alert-success" role=alert>
+            <h3 class="text-center">
+                {{ count }} : is your total visitors
+            </h3>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Guest name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bookings in booking %}
+                <tr>
+                
+                    <td>{{bookings.user}}</td>
+                    <td>{{bookings.guest_phone }}</td>
+                    <td>{{bookings.guest_email}}</td>
+                    <td>{{bookings.room }}</td>
+                    <td>{{bookings.room.price }}cfa</td>
+                    <td>{{bookings.check_in }}</td>
+                    <td>{{bookings.check_out }}</td>
+                
+                    <td></a><a class="text-danger" href="{% url 'delete-view-booking' bookings.id %}"> Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

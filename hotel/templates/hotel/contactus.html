@@ -1,0 +1,43 @@
+{% extends "hotel/base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="tm-main">
+    <p>Contact</p>
+</section>
+
+
+
+<section class="tm-booking">
+
+<form method="POST" Action="">
+    {% csrf_token %}
+ <div class="tm-form1">
+    {{form.name}}
+<input type="text" name="name" placeholder="Name">  
+{{form.email}}
+<input type="email" name="email" placeholder="E-mail"> 
+{{form.message}}
+     <textarea  placeholder="Your message..." rows="4" ></textarea>
+
+     <input type="submit" id="sub2" value="Send">
+
+</div>
+ </form> 
+ 
+ <div class="vertical-line"> </div>
+ 
+<div class="tm-form2">
+<div class="tm-cl">
+ <p class="here">We are situated over here</p><img id="place" src="{% static 'images/placeholder.png' %}">
+
+ <div id="map"></div>
+
+
+</div>
+</div>
+ 
+</section>
+
+
+{% endblock content %}
